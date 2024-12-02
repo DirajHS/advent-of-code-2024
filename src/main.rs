@@ -99,14 +99,18 @@ fn main() {
     match parse() {
         Err(err) => {
             eprintln!("Error: {err}");
-            std::process::exit(1);
+            process::exit(1);
         }
         Ok(args) => match args {
             AppArguments::All { release } => all::handle(release),
             AppArguments::Time { day, all, store } => time::handle(day, all, store),
             AppArguments::Download { day } => download::handle(day),
             AppArguments::Read { day } => read::handle(day),
-            AppArguments::Scaffold { day, download, overwrite } => {
+            AppArguments::Scaffold {
+                day,
+                download,
+                overwrite,
+            } => {
                 scaffold::handle(day, overwrite);
                 if download {
                     download::handle(day);
