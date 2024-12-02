@@ -1,10 +1,9 @@
 use advent_of_code::template::commands::{all, download, read, scaffold, solve, time};
 use args::{parse, AppArguments};
+use std::process;
 
 #[cfg(feature = "today")]
 use advent_of_code::template::Day;
-#[cfg(feature = "today")]
-use std::process;
 
 mod args {
     use advent_of_code::template::Day;
